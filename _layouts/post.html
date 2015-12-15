@@ -20,4 +20,12 @@ layout: default
     {{ content }}
   </div>
 
+  <!-- mathjax -->
+  {% if page.mathjax %}
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  {% endif %}
+
+  <!-- disqus -->
+  {% include comments.html %}
+
 </article>

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Start with torch"
+excerpt: "For newbies who first get hands on deep learning and torch."
 date: 2015-12-14 19:15:40 -0600
 comments: true
 ---
