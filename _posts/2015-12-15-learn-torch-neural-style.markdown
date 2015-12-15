@@ -7,7 +7,7 @@ date: 2015-12-15 16:19:40 -0600
 comments: true
 ---
 
-This posts will cover this cool application: given a content picture and an artwork, generate a new picture with content of the content picture and style of the artwork.
+This posts will cover this cool application: given a content picture and an artwork, generate a new picture with content of the content picture and style of the artwork. The following picture is copied from their paper.
 <div> <img src="/assets/neural_style.jpg" title="What neural styles does!"></div>
 Em.. Unfortunately there will be no more pictures in the post.
 
