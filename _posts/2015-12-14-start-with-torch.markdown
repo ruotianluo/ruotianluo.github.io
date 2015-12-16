@@ -29,6 +29,6 @@ If you want to see some interesting results before understanding the code, read 
 #Bugs I met
 - The size of t7 file. There is a memory limit for torch table, so don't try to put too much things to a table, and don't try to save into a file.
 - Instead, the Tensor of torch can exceed the memory limit. Yeah! Torch rocks.
-- I am using * zbs-torch * which is a light IDE. It's easier to debug. But what sucks is sometimes the code works in terminal **th**, but doesn't work in zbs-torch (I'm still looking for the reason). So try run the code in terminal, and you can always use * mobdebug * module.
+- I am using *zbs-torch* which is a light IDE. It's easier to debug. But what sucks is sometimes the code works in terminal **th**, but doesn't work in zbs-torch (I'm still looking for the reason). So try run the code in terminal, and you can always use *mobdebug *module.
 
 I hope this could be a useful file, and I will keep updating.
