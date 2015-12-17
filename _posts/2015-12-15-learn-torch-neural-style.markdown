@@ -32,7 +32,7 @@ So, have fun. :)
 I tried some more.
 <div> <img src="/assets/neural_style/lowpoly.png" title="Low poly."></div>
 <div> <img src="/assets/neural_style/mondrian.png" title="Mondrian"></div>
-Can you tell what these two styles are. Honestly, the Mondrian one looks really bad, but you can still tell. And the low poly one works really good (you cannot ask too much).
+Can you tell what these two styles are. Honestly, the Mondrian one looks really bad, but you can still tell. And the low poly one works good, in my opinion.
 
 
 ------
