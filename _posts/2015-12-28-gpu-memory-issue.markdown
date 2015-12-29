@@ -4,6 +4,7 @@ title: "How to deal with GPU 'out of memory'"
 excerpt: "To be honest, it's not a tutorial to save gpu memory usage. It's more like a discussion. So feel free to comment.
 "
 date: 2015-12-28 13:17:40 -0600
+comments: true
 ---
 
 To be honest, it's not a tutorial of how to save GPU memory usage. As I said, I'm a newbie to torch, and also to cuda or gpu, and also to any large scale problems. I actually rarely care about memory issues before.
