@@ -1,0 +1,18 @@
+---
+layout: post
+title: "Terrible torch json and the bridge between Lua and Python"
+excerpt: "I was trying to pass dict from python to Torch using json, but json in Torch works bad."
+date: 2016-01-01 13:17:40 -0600
+comments: true
+---
+
+> Happy new year!
+
+In the past three month, I was always using Python to do a lot preprocessing job. (Not saying Lua cannot do such work, it's because I'm still not familiar with Lua that much.) An intuition to pass data from Python to Torch is to use json which works well on Python if there is no strange types in the dict. This works well when the json file is small like 200MB, however, when the json file goes to 1GB or larger, Torch will tell me out of memory. (My device has 16GB memory.) Of cause, using Python to load the same json file has no problem at all.
+
+One thing for sure is the json modules (there are many json modules for Lua, but none of them work) have some problems. So I'm seeking other format that is supported by both Python and Lua. I tried hdf5 which could be a possible solution. [This blog](http://fastml.com/loading-data-in-torch-is-a-mess/) says Loading data in Torch is a mess; I agree (for now).
+
+Then I tried to search how to connect Python and Lua (previously I searched Python and Torch, which was a bad choice), and found this [fb-python](https://github.com/facebook/fblualib/blob/master/fblualib/python/README.md), and further I found [fblualib](https://github.com/facebook/fblualib) which is libraries and utilities for Lua built by Facebook.
+
+I haven't tried fb-python yet, I will update after I tried this.
+
