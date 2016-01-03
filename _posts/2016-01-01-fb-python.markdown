@@ -8,11 +8,36 @@ comments: true
 
 > Happy new year!
 
-In the past three month, I was always using Python to do a lot preprocessing job. (Not saying Lua cannot do such work, it's because I'm still not familiar with Lua that much.) An intuition to pass data from Python to Torch is to use json which works well on Python if there is no strange types in the dict. This works well when the json file is small like 200MB, however, when the json file goes to 1GB or larger, Torch will tell me out of memory. (My device has 16GB memory.) Of cause, using Python to load the same json file has no problem at all.
+In the past three month, I was always using Python to do a lot preprocessing job. (Not saying Lua cannot do such work, it's because I'm still not familiar with Lua that much.) An intuition to pass data from Python to Torch is to use json which works well on Python if there is no strange types in the dict. This works well when the json file is small like 200MB, however, when the json file goes to 1GB or larger, Torch will tell me out of memory. (My device has 16GB memory.) Of course, using Python to load the same json file has no problem at all.
 
-One thing for sure is the json modules (there are many json modules for Lua, but none of them work) have some problems. So I'm seeking other format that is supported by both Python and Lua. I tried hdf5 which could be a possible solution. [This blog](http://fastml.com/loading-data-in-torch-is-a-mess/) says Loading data in Torch is a mess; I agree (for now).
+<strike>One thing for sure is the json modules (there are many json modules for Lua, but none of them work (lua-cjson, dkjson, lua--json)) have some problems.</strike> <strong>It's the problem of Lua. Lua can't assign a table to be larger than a certain amount of size (seemly 1G); however torch tensor can exceed this memory limit</strong> So I'm seeking other format that is supported by both Python and Lua. I tried hdf5 which could be a possible solution. [This blog](http://fastml.com/loading-data-in-torch-is-a-mess/) says Loading data in Torch is a mess; I agree (for now).
 
 Then I tried to search how to connect Python and Lua (previously I searched Python and Torch, which was a bad choice), and found this [fb-python](https://github.com/facebook/fblualib/blob/master/fblualib/python/README.md), and further I found [fblualib](https://github.com/facebook/fblualib) which is libraries and utilities for Lua built by Facebook.
 
-I haven't tried fb-python yet, I will update after I tried this.
+Pay attention: if you want to use fb.python, it will not be defaultly installed. So you need to clone fbluajit, and modify 'build.sh' in folder fbluajit.
 
+## My attempt
+The fb.python works perfectly. The main reason of "out of memory" is caused by Lua, so if we use Python to load the data and save it in Python memory, we can escape the annoying memory limit.
+{% highlight lua%}
+py = require 'fb.python'
+py.exec(import json)
+file_name = 'xxx'
+data = py.reval('json.loads(open(file_name).read())', {file_name = file_name})
+len = py.eval('len(data)', {data = data})
+print(len)
+print(py.eval(data[py.int(0)]))
+{% endhighlight %}
+The fb.python has a detailed documentation. After you understand what exec, eval, reval is, here is something which is not mentioned or not explicitly mentioned:
+
+- To avoid the same out of memory problem, do not use eval when the statement return a large dict or list. If the Python dict or list is too large, it can still not be saved in a table.
+
+- We could put aligned data into a single tensor (which is not restricted by Lua memory size), and other meta information in a table (which I assume is not big).
+
+- When the first argument of eval exec or reval is a string, then all the variable in the statement should be explicitly told by the second argument. Like this:
+{% highlight lua%}
+len = py.eval('len(data)', {data = data})
+{% endhighlight %}
+Instead, when the first argument is a expression, then all the variable used in the expression should be a reference of Python. If you want to put a Lua variable in the expression, you need to converse the variable to Python reference. Like this:
+{% highlight lua%}
+print(py.eval(data[py.int(0)]))
+{% endhighlight %}
