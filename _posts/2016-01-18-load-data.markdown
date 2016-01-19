@@ -1,0 +1,30 @@
+---
+layout: post
+title: "Learn from neuraltalk2: A textbook way to load data"
+excerpt: "I have discussed in serveral blogs talking about memory, loading data etc. This is the best I have ever seen."
+date: 2016-01-18 22:17:40 -0600
+comments: true
+---
+
+In this post, I recommend a really good project: [neuraltalk2]{https://github.com/karpathy/neuraltalk2} on Andrej Karpathy's github.
+
+I found this last week, which I really hope that I could have seen it earlier. (My fellow said they made it public less than a month ago, which made me feel better.)
+
+This github make a good example for both NLP guys and Vision guys to use torch. However, by far I only browsed the vision-related part of the project, so basically I will talk about this part.
+
+First, this project provides a decent way to preprocess the MSCOCO information, including:
+
+- downloading the annotations
+- splitting to validation and training data
+- preprocessing the images (resizing and cropping) and saving into the hdf5 file
+- preprocessing captions (building vocabulary, turning captions into vectors etc.)
+
+They give us the way to deal with the large data: put data information in a json file, and put main data in a hdf5 file (which could be even larger than the memory).
+
+The good thing of hdf5 file is we don't need to care about disk and memory, every time you just need to use the hdf5 interface to load the data.
+
+The related file are:
+
+- coco/coco_preprocess.ipynb
+- prepro.py
+- misc/DataLoader.lua
