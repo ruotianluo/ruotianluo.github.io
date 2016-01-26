@@ -90,7 +90,9 @@ Saving is easy: just save the thin version instead of the original version.
 To clarify, we don't need to touch anything about the network module actually, everything is in the params and grad\_params.
 
 
-### Feel free to ask me questions.
+Finally thanks to my senior labmate who helped me to figure out the problem.
+
+##### Feel free to comment. :)
 
 
 
