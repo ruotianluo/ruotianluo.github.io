@@ -6,7 +6,7 @@ date: 2016-01-18 22:17:40 -0600
 comments: true
 ---
 
-In this post, I recommend a really good project: [neuraltalk2]{https://github.com/karpathy/neuraltalk2} on Andrej Karpathy's github.
+In this post, I recommend a really good project: [neuraltalk2](https://github.com/karpathy/neuraltalk2} on Andrej Karpathy's github).
 
 I found this last week, which I really hope that I could have seen it earlier. (My fellow said they made it public less than a month ago, which made me feel better.)
 
