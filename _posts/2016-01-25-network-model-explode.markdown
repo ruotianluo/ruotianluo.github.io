@@ -8,7 +8,7 @@ comments: true
 
 First, I'm happy that some one read my posts and emailed me asking some question. I know my blog posts are really coarse, I'll try to make it more ordered.
 
-In this post, I want to talk about saving network model. What happened to me is: I'm training a simple logistic regression, the parameter should be around 400000 float numbers, i.e. ~170MB. But when I save the model directly using 
+In this post, I want to talk about saving network model. What happened to me is: I'm training a simple logistic regression, the parameter should be around 400000 float numbers, i.e. ~2MB. But when I save the model directly using 
 {% highlight lua %}
 torch.save(filename, nn)
 {% endhighlight %}
