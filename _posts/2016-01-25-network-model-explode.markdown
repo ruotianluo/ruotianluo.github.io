@@ -66,7 +66,7 @@ for k,v in pairs(lm_modules) do net_utils.sanitize_gradients(v) end
 -- all the way here at the end because calls such as :cuda() and
 -- :getParameters() reshuffle memory around.
 {% endhighlight %}
-Here is something different: the thin\_lm and thin\_cnn doesn't save gradWeight and gradBias (I don't think the two net\_utils.santize\_gradients is necessary, but haven't validated; net\_utils.santize\_gradients is to set the gradient varibales of network to nil). thin_lm is a customized module, so there is a more complicated way to process.
+Here is something different: the thin\_lm and thin\_cnn doesn't save gradWeight and gradBias (I don't think the two net\_utils.santize\_gradients is necessary, but haven't verified; net\_utils.santize\_gradients is to set the gradient varibales of network to nil). thin_lm is a customized module, so there is a more complicated way to process.
 
 - Read
 {% highlight lua %}
