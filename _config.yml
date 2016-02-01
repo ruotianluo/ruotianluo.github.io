@@ -16,5 +16,5 @@ twitter_username: nil
 github_username: ruotianluo
 
 # Build settings
-#markdown: kramdown
-markdown: redcarpet
+markdown: kramdown
+#markdown: redcarpet
