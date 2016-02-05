@@ -16,3 +16,13 @@ The code is here. In principle, it's just remove the VGG and put ResNet in (less
 
 Enjoy and please point out the bugs.
 
+
+###In addition
+I forgot to give the link about the post of the facebook ResNet. [the blog post](http://torch.ch/blog/2016/02/04/resnets.html).
+
+I found it interesting that they use shared memory for the repeated modules. This seems interesting, may reduce half of the intermediate variables. But this seems to require the update to be done during the back propagation(This won't hurt optimization right?).
+
+Here is what in the original post:
+> We used a few tricks to fit the larger ResNet-101 and ResNet-152 models on 4 GPUs, each with 12 GB of memory, while still using batch size 256. In a backwards pass, the gradInput buffers can be reused once the module's gradWeight has been computed. In Torch, an easy way to achieve this is to modify modules of the same type to share their underlying storages. We also used the in-place variants of the ReLU and CAddTable modules.
+
+>Adding these memory optimizations only amount to an [extra 10 lines of code](https://github.com/facebook/fb.resnet.torch/blob/master/models/init.lua#L40-L53).
