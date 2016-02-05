@@ -1,0 +1,18 @@
+---
+layout: post
+title: "Available ResNets and neuraltalk2 using ResNet"
+excerpt: "The ResNet was finally released in caffe, however I could not use it. But thank facebook, now I can."
+date: 2016-02-05 15:17:40 -0600
+comments: true
+---
+
+Two days ago, Kaiming He make their [ResNet](https://github.com/KaimingHe/deep-residual-networks) public, and includes the various pretrained model. I was excited and download the model immediately and try to use loadcaffe module to use the ResNet. Sadly, the loadcaffe seems not to support the Batch Normalizations.
+
+Okay, however, this morning, I found facebook has released their ResNet model which has maximum 101 layers but has a better result on validation error. I think facebook just released it yesterday, so it's pretty fresh now. The facebook version is also now on the page of Kaiming's Resnet page, and also with some other versions.
+
+So, a immediate idea to me is to use the ResNet on neuraltalk2, because it's really easy to plug in the original framework. Facebook has a clear code how to extract feature from an image.
+
+The code is here. In principle, it's just remove the VGG and put ResNet in (less than 100-line modification). The link is here [neuraltalk2_resnet](https://github.com/ruotianluo/neuraltalk2_resnet). I am still training it, so there may be some bugs.
+
+Enjoy and please point out the bugs.
+
