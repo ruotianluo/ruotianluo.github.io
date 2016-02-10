@@ -17,7 +17,8 @@ The code is here. In principle, it's just remove the VGG and put ResNet in (less
 Enjoy and please point out the bugs.
 
 
-###In addition
+### In addition
+
 I forgot to give the link about the post of the facebook ResNet. [the blog post](http://torch.ch/blog/2016/02/04/resnets.html).
 
 I found it interesting that they use shared memory for the repeated modules. This seems interesting, may reduce half of the intermediate variables. <strike>But this seems to require the update to be done during the back propagation(This won't hurt optimization right?).</strike> The shared memory is on gradInput, which will not be used in the update.
