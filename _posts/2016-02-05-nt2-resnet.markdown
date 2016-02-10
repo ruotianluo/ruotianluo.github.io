@@ -12,7 +12,7 @@ Okay, however, this morning, I found facebook has released their ResNet ([fb.res
 
 So, a immediate idea to me is to use the ResNet on neuraltalk2, because it's really easy to plug in the original framework. Facebook has a clear code how to extract feature from an image.
 
-The code is here. In principle, it's just remove the VGG and put ResNet in (less than 100-line modification). The link is here [neuraltalk2_resnet](https://github.com/ruotianluo/neuraltalk2_resnet). I am still training it, so there may be some bugs.
+The code is here. In principle, it's just remove the VGG and put ResNet in (less than 100-line modification). The link is here [neuraltalk2-resnet](https://github.com/ruotianluo/neuraltalk2-resnet). I am still training it, so there may be some bugs.
 
 Enjoy and please point out the bugs.
 
