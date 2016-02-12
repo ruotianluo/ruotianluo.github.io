@@ -11,9 +11,9 @@ update_date: 2015-12-16 16:19:40 -0600
 
 This posts will cover this cool application: given a content picture and an artwork, generate a new picture with content of the content picture and style of the artwork. The following picture is copied from their paper.
 <div> <img src="/assets/neural_style/neural_style.jpg" title="What neural styles does!"></div>
-Em.. Unfortunately there will be no more pictures in the post.
+<strike>Em.. Unfortunately there will be no more pictures in the post.</strike>
 
-You can browse their [github](https://github.com/jcjohnson/neural-style), there are plenty of demos. And you can also read their paper, to understand the principle or see more pictures.
+You can browse the [jcjohnson/neural-style](https://github.com/jcjohnson/neural-style), there are plenty of demos. This one is torch implenmentation, and there are some other implenmentation in different tools. And you can also read the [original paper](http://arxiv.org/abs/1508.06576), to understand the principle or see more pictures.
 
 It is similar to many image reconstructions using neural network: instead of optimizing network weights, fix the weights, and do gradient descent on image input. So, what we need is how to define the loss.
 
