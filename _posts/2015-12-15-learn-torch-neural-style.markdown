@@ -47,5 +47,5 @@ The loss is the square loss between gram matrix of generated image and original 
 
 There is an example of style reconstruction and content reconstruction in their paper.
 
-So, how do we generate the artistic picture? For lower layers, we calculate loss of style reconstruction, and for higher layers, we calculate loss of content reconstruction. And to minize the aggregated loss, we can generate a cool picture.
+So, how do we generate the artistic picture? For lower layers, we calculate loss of style reconstruction, and for higher layers, we calculate loss of content reconstruction. And to minimize the aggregated loss, we can generate a cool picture.
 
