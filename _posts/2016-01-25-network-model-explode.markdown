@@ -94,6 +94,11 @@ Finally thanks to my senior labmate who helped me to figure out the problem.
 
 #### Feel free to comment. :)
 
+----
+
+##Update:##
+Need to be careful to some "strange" layers. For <b>SpatialBatchNormalization</b>> you also need to share <b>running_mean</b> and <b>running_var</b>!
+
 
 
 
