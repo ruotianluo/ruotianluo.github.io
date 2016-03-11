@@ -2,7 +2,7 @@
 layout: post
 title: "Cong to AlphaGo: Let's learn torch from Torch based projects on github"
 excerpt: "Here is some repositories I collected on github which are implemented in torch/Lua. These can be helpful for us to get used to torch."
-date: 2016-02-05 15:17:40 -0600
+date: 2016-03-10 16:10:40 -0600
 comments: true
 ---
 First, congratulation to Google Deepmind!!!! I watched the live of the first two games.
