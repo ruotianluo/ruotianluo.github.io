@@ -15,7 +15,7 @@ Whatever, what's important is that AlphaGo is implemented in torch (from the gra
 
 This post, I hope could be something similar a cheatsheet.
 
-## Find a fabulous page........ [Awesome Torch](https://github.com/carpedm20/awesome-torch)
+## Find a fabulous page........ [Awesome Torch](https://github.com/ruotianluo/awesome-torch)
 There are some intersections, but my following list contains some which this page doesn't has.
 
 # Some tools:
