@@ -1,0 +1,23 @@
+---
+layout: post
+title: "Learn from fb.resnet.torch: <b>Another</b> textbook way to load data"
+excerpt: "I have discussed loading data in neuraltalk2. This time is learning from fb.resnet.torch."
+date: 2016-03-25 19:17:40 -0600
+comments: true
+---
+
+Previously I talked about the [data loading in Neuraltalk2](/2016/01/18/load-data.html). One bad thing to use h5 file is obvious: we duplicate the space for saving the data. And in some sense, it's a little complicated to modify the h5 file if we have some change in the dataset.
+
+So, [fb.resnet.torch](https://github.com/facebook/fb.resnet.torch) has given us a good way to show how we can read the data efficiently without creating a new file.
+
+The multi-threaded way has two main parts: 
+
+- a dataloader.lua which is a general wrapper for different datasets, and can load data in parallel.
+- datasets/[dataset].lua, which provides the implementation to the dataloader, including initialization, preprocessing, and individual loading.
+
+Some thing which may be useful:
+
+- Each thread has its own enviroment. First, it has its own global variables. Secondly, all the packages used in threads need to be required inside the thread. Thirdly, the lua_path and lua_cpath is the same as the system, but not the current enviroment of th (Previously I explicitly claim lua_path and lua_cpath in the command th, and then when I start the threads, I can't find some packages). If the error is cannot find package, check the global enviroment variable.
+- Each job will be serialized before sending to each thread (only for asynchronizely addjob mode), so it's possible if you are calling some functions which cannot be serialized (in my case, functions for hdf5). But in most cases, if you meet problem saying unserializable, the main reason is you didin't require that package.
+
+I haven't done any tests on the speed. Both way should be fast. I believe the hdf5 has its own strategy to load data into memory to avoid reading from disk. And the threaded way apparently can use the BUS more efficiently. But I have no idea which is faster. If loading data randomly, the preloading of hdf5 may not work, and threaded way could be faster. But if we read data sequentially, the threaded way depends much on the disk speed, which I think if the disk is SSD, the speed may be similar, but HDD would make threaded way possibly slower than hdf5.
