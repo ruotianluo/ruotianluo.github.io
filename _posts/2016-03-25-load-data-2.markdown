@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Learn from fb.resnet.torch: <b>Another</b> textbook way to load data"
+title: "Learn from fb.resnet.torch: Another textbook way to load data"
 excerpt: "I have discussed loading data in neuraltalk2. This time is learning from fb.resnet.torch."
 date: 2016-03-25 19:17:40 -0600
 comments: true
