@@ -3,7 +3,15 @@ layout: post
 title: "Learn from neuraltalk2: Wow, why my network model file is so big!"
 excerpt: "I have just met the problem seeing my saved network model is extremely big. And the answer can be found in the neuraltalk2."
 date: 2016-01-25 18:17:40 -0600
+update: 2016-05-03 18:17:40 -0600
 comments: true
+---
+
+##<b>Important update:</b>##
+
+The way in this post is old now. People use clearState() to clean the intermediate variables, although it works worse than the way below, but it's easier and is harder to introduce bugs.
+
+---
 ---
 
 First, I'm happy that some one read my posts and emailed me asking some question. I know my blog posts are really coarse, I'll try to make it more ordered.
@@ -98,7 +106,3 @@ Finally thanks to my senior labmate who helped me to figure out the problem.
 
 ##Update:##
 Need to be careful to some "strange" layers. For <b>SpatialBatchNormalization</b>> you also need to share <b>running_mean</b> and <b>running_var</b>!
-
-
-
-
