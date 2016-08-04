@@ -61,7 +61,7 @@ In the tensorboard, I visualize the BLEU, CIDEr, METEOR and ROUGE on validation 
 ## Remained things
 
 - The current progress is enough for researching, because it provides the training and evaluation on validation. But it's currently not enough for demonstration.<br>
-I need to provide a pretrained model. However I can't initialize the network only from the saved model. Every time I build the network, I need to initialize the vgg from the npy file. (I have already have some idea how to fix it)<br>
+I need to provide a pretrained model. <strike>However I can't initialize the network only from the saved model. Every time I build the network, I need to initialize the vgg from the npy file. (I have already have some idea how to fix it)</strike> I will put a pretrained model after I finished training it (probably needs a few days).<br> 
 After that, I would add other demonstration related stuff like using camera, or test on single image etc.
 - Currently I'm using h5 file. However, we could use tensorflow to do the multi-threaded image loading which would saving time.
 - I haven'ted test on stacked LSTM. and GRU yet.
