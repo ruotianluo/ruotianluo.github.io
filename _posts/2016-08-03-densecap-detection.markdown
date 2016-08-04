@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Detection using Densecap"
-excerpt: "Densecap provides a similar framework of faster-rcnn which however produces captions for each region. I modify it to make it a faster-rcnn"
-date: 2016-08-03 01:50:40 -0500
+excerpt: "Densecap provides a similar framework of faster-rcnn which however produces captions for each region. I modify it to make it a faster-rcnn."
+date: 2016-08-03 22:50:40 -0500
 comments: true
 ---
 
