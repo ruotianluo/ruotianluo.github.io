@@ -2,7 +2,7 @@
 layout: post
 title: "Reading notes: Third person imitation learning"
 excerpt: ""
-date: 2016-08-04 10:50:40 -0500
+date: 2016-11-20 16:50:40 -0500
 comments: true
 mathjax: true
 ---
