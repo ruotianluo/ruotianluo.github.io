@@ -18,3 +18,11 @@ github_username: ruotianluo
 # Build settings
 markdown: kramdown
 #markdown: redcarpet
+permalink: pretty
+
+highlighter: rouge
+kramdown:
+  input: GFM
+  auto_ids: true
+  syntax_highlighter: rouge
+
