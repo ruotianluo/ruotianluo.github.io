@@ -129,3 +129,9 @@ In terms of speed, they are actually similar (maybe it's a wrong to test?). Note
 ## Wrapup
 
 I currently don't if atomic add is as slow as I think. I will update this blog to tell you if my alternative can work faster than atomic adds.
+
+---
+
+## Update 1.14:
+
+Sad story, the atomic add is actually faster..............
