@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Using Reinforcement Leanring Algorithm to Generate Image captions"
+title: "Reading notes: Using Reinforcement Leanring Algorithm to Generate Image captions"
 excerpt: ""
 date: 2017-1-20 19:30:28 -0500
 comments: true
