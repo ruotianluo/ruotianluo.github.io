@@ -45,6 +45,6 @@ They also use the reward prediction to update the value function. (Note that the
 
 Although there are some unclear points in the methods. Their results are actually super good.
 
-Adding these auxiliary tasks, the system is faster to train and also can achieve better result in most cases. Especially on  Labyrinth, the pixel control can help a lot.
+Adding these auxiliary tasks, the system is faster to train and also can achieve better result in most cases. Especially on Labyrinth, the pixel control can help a lot.
 
 Their hyperparamters are relatively simple, and they did some hyperparameter searching. The results shows their model is more robust than normal A3C.

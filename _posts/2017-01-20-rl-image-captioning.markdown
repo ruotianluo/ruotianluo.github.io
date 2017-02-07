@@ -9,7 +9,9 @@ mathjax: true
 
 I have been a while not reading pure image captioning paper. One day I checked the coco leaderboard, and found the first two are both quite recent result. So I checked their paper, and found that they are both using policy gradient. Intersting.
 
-So some basic background for image captioning: the standard way to train a image caption is to minimize $$P(w_{1:T}|I)$$. Using chain rule and take log, you can basically train the model by minimizing the cross entropy loss of each word.
+So some basic background for image captioning: the standard way to train a image caption is to minimize 
+$$P(w_{1:T}| I)$$.
+Using chain rule and take log, you can basically train the model by minimizing the cross entropy loss of each word.
 
 However, there are two shortcomings for this kind of strategy:
 
