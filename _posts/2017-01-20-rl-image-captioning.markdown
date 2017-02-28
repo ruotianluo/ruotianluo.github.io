@@ -9,7 +9,7 @@ mathjax: true
 
 I have been a while not reading pure image captioning paper. One day I checked the coco leaderboard, and found the first two are both quite recent result. So I checked their paper, and found that they are both using policy gradient. Intersting.
 
-So some basic background for image captioning: the standard way to train a image caption is to minimize 
+So some basic background for image captioning: the standard way to train a image caption is to maximize 
 $$P(w_{1:T}| I)$$.
 Using chain rule and take log, you can basically train the model by minimizing the cross entropy loss of each word.
 
@@ -45,7 +45,7 @@ $$L(\theta) = -\mathbb{E}_{w^s\sim p_\theta} [r(w^s)]$$
 
 where $$w_s$$ is the sampled caption, which can be seperated to $$w_1^s$$ to $$w_T^s$$. $$p_\theta$$ is our model parameterized by $$\theta$$.
 
-By simple derivation, we can get the gradient of $$\theta$$ with respect to $$L$$.
+By simple derivation, we can get the gradient of $$L$$ with respect to $$\theta$$.
 
 $$\nabla_\theta L(\theta) = -\mathbb{E}_{w_s\sim p_\theta}[r(w^s)\nabla_\theta \log p_\theta(w^s) ]$$
 
@@ -91,13 +91,13 @@ Another thing is, the geration process in training and testing is coherent. Howe
 
 Some implementation details:
 
-They are using show attend tell model. The vision feature is the output of the last convolutional layer of resnet-101. They didn't crop or rescale the image, but input the original image, and then use spatial adaptive average pooling to resize it to 14*14*2048. (I omit the non-attention model in that paper.)
+They are using show attend tell model. The vision feature is the output of the last convolutional layer of resnet-101. They didn't crop or rescale the image, but input the original image, and then use spatial adaptive average pooling to resize it to 14x14x2048. (I omit the non-attention model in that paper.)
 
 They also tried different metric as reweard. However, only optimizing on CIDER can gain improvements on all the other metrics compared to cross-entropy loss, which implicitly proves CIDER is better than other metrics.
 
 ---
 
-The second paper is quite similar to seqGAN. This paper defines Q, which is the expected reward of choosing $w_t$ given the previously generated t-1 words and the image.
+The second paper is quite similar to seqGAN. This paper defines Q, which is the expected reward of choosing $$w_t$$ given the previously generated t-1 words and the image.
 
 $$Q_\theta(w_{1:t-1}, w_t) = \mathbb{E}_{w_{t+1:T}}[R(w_{1:t-1}, w_t, w_{t+1:T})]$$
 
