@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Summary for Structured Cascades Prediction"
+title: "Summary for Structured Prediction Cascades"
 excerpt: ""
 date: 2017-06-18 00:31:28 -0500
 comments: true
