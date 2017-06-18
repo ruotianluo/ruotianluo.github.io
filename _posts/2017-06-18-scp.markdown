@@ -1,0 +1,20 @@
+---
+layout: post
+title: "Summary for Structured Cascades Prediction"
+excerpt: ""
+date: 2017-06-18 00:31:28 -0500
+comments: true
+mathjax: true
+---
+
+This paper is very different from what usually read. It's a paper from 2010, pre-deep era. The paper is mostly about how to efficiently use high-order graphical model to do structured prediction via a cascade model.
+
+The reason I read this paper is because I have to read it. It's part of my qualifying exam. The way we have our qual, is the committee chair will assign you a paper outside of your research field to read; and you need to hand in a summary of the paper and also present it to the committee, and in principle the committee members can ask anything related, even slightly related.
+
+My committee members are all nice people, however I still got a conditional pass, which was a sad story.
+
+Anyway, I'm gonna stop here, because I do have a summary. Here is the [summary](http://ttic.uchicago.edu/~rluo/files/qualifying_exam_summary.pdf)
+
+And also, if you want to read the original paper, [link](http://homes.cs.washington.edu/~taskar/pubs/aistats10cascades.pdf).
+
+The author also have a journal version released (but not being accepted anywhere), [link](https://arxiv.org/pdf/1208.3279.pdf).
