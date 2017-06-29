@@ -14,30 +14,30 @@ You may remember one of the best paper at this year ICLR: rethinking generalizat
 
 ### Method:
 
-The general supervised learning is: suppose we have n samples $x_i$, and each sample has a target $y_i$(not limited to a class), we have to learn a function $f_\theta$, so that expected loss is minimized,
+The general supervised learning is: suppose we have n samples $$x_i$$, and each sample has a target $$y_i$$(not limited to a class), we have to learn a function $$f_\theta$$, so that expected loss is minimized,
 
-$\min_\theta \frac{1}{n}\sum l(f_\theta(x_i),y_i)$
+$$\min_\theta \frac{1}{n}\sum l(f_\theta(x_i),y_i)$$
 
-However, in the case of unsupervised learning, we do not have this target $y_i$, so what should we do? The answer is learn the $y_i$. So our objective now becomes:
+However, in the case of unsupervised learning, we do not have this target $$y_i$$, so what should we do? The answer is learn the $$y_i$$. So our objective now becomes:
 
-$\min_\theta \frac{1}{n}\min_{y_i}\sum l(f_\theta(x_i),y_i)$
+$$\min_\theta \frac{1}{n}\min_{y_i}\sum l(f_\theta(x_i),y_i)$$
 
-However, if we don't put any constraints on $y_i$, we will get a trivial result: all $y_i$s are constant, then $f_\theta$ outputs this constant all the time.
+However, if we don't put any constraints on $$y_i$$, we will get a trivial result: all $$y_i$$s are constant, then $$f_\theta$$ outputs this constant all the time.
 
-In order to avoid this issue, the authors choose k representations in advance (k must be larger than n; these k representations are fixed), and then $y_i$ must be selected from the k representations, and the same representation can only be chosen by one$y_i$.
+In order to avoid this issue, the authors choose k representations in advance (k must be larger than n; these k representations are fixed), and then $$y_i$$ must be selected from the k representations, and the same representation can only be chosen by one$$y_i$$.
 
 
-If we denote in matrix form, then the target $Y$ is a $n \times d$ matrix (each line is $y_i$ and d is the length of y), $C$ is a $k \times d$ matrix, containing pre-selected k representations.
+If we denote in matrix form, then the target $$Y$$ is a $$n \times d$$ matrix (each line is $$y_i$$ and d is the length of y), $$C$$ is a $$k \times d$$ matrix, containing pre-selected k representations.
 
-Then $Y = PC$,
+Then $$Y = PC$$,
 
-P is a $n \times k$ assignment matrix, with values of 0,1. If $P (i, j)$ is 1, then $y_i = C_j$. And $P$ must satisfy that $P1_k \leq 1_n$, $P^\intercal 1_n = 1_k$. (This is the mathematical form of the above selection constraint)
+P is a $$n \times k$$ assignment matrix, with values of 0,1. If $$P (i, j)$$ is 1, then $$y_i = C_j$$. And $$P$$ must satisfy that $$P1_k \leq 1_n$$, $$P^\intercal 1_n = 1_k$$. (This is the mathematical form of the above selection constraint)
 
 
 
 So the training objective becomes
 
-$\min_\theta \min_P l(f_\theta (X), PC)$
+$$\min_\theta \min_P l(f_\theta (X), PC)$$
 
 
 
@@ -45,7 +45,7 @@ $\min_\theta \min_P l(f_\theta (X), PC)$
 
 Loss: l2 distance
 
-$f_\theta (x)$: outputs a unit vector of length d
+$$f_\theta (x)$$: outputs a unit vector of length d
 
 C: uniformly sampled from the unit sphere
 
@@ -59,7 +59,7 @@ In nutshell, this algorithm is finding a network that could map all the training
             title=""
             caption="" %}
 
-The algorithm is kind of similar to k-means. First, given current parameters, find new assignment $P$, and then fix the new assignment to optimize $\theta$.
+The algorithm is kind of similar to k-means. First, given current parameters, find new assignment $$P$$, and then fix the new assignment to optimize $$\theta$$.
 
 However, due to the size of data, they use the sgd method. For the assignment, they only update the sub-matrix of the current batch, that is, the change of assignments can only occur inside the batch.
 
