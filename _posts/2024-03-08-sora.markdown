@@ -1,0 +1,64 @@
+---
+layout: post
+title: "My take of SORA"
+excerpt: ""
+date: 2024-03-08 2:10:21 -0500
+comments: true
+mathjax: true
+---
+
+Just jotting down some thoughts. Initially, I wanted to take this more seriously and even considered making sora-paper-reading GPTs, but well.
+
+# Why Write About Sora?
+
+Firstly, because I find it quite interesting. Secondly, it seems really simple at a glance. Thirdly, it's worth understanding as it represents a clear path forward, unlike previous papers, more like trials and errors. 
+
+# What Surprised Me About Sora
+
+I particularly adored the blue bird and the eyes; those two absolutely dazzled me, offering a sensation distinct from anything produced by Runway, Pika, etc. They exhibited both fast and slow motion, capable of being perfectly static or moving very rapidly. Moreover, they felt incredibly real.
+
+Another aspect is the multiple camera views, plus the one-minute duration, though I'm unsure if that duration is achieved through post-processing.
+
+# My Takeaway
+
+Technically, Sora doesn't introduce groundbreaking innovations. However, what OpenAI has done is to identify a viable technical pathway. From GPT onward, with autoregressive, transformer, next-word prediction, scaling, alignment, OpenAI effectively finalized the entire GPT technical route. The greatest bottleneck seems to be in infrastructure - ML infrastructure and data infrastructure, heralding a new era for cloud computing, high performance, and chips. It feels like OpenAI doesn't fully own its data infrastructure, much of which might be managed by Scale AI, but the balance of this arrangement is unclear to me.
+
+Veering off, the field of text-to-video was previously a stage of contention among many approaches. Now, with the release of Sora, it seems we have our first convergence. However, it's too early to declare this the definitive solution. Look at DALL-E 1, which wasn't based on diffusion models. Autoregressive methods still hold promise, and the future isn't entirely clear.
+
+# Technical Highlights
+
+One key aspect is the video compression network. Not even calling it a VAE suggests there might be some secrets. Directly applying VAE to videos seems uncommon; many prefer to reuse image models because one can use some pretrained VAE. Google's MagVit might be an good reference, but it's not open source and inaccessible for use.
+
+I thin the patch is in the NxNxTxC format, adding atemproal dimension to DIT. Although video compression likely compresses along the time dimension as well, the mention of spacetime patches implies the inclusion of temporal dimension.
+
+Navit, essentially, combines patches of different resolutions. Transformers facilitate packing these efficiently. UNet can also handle varying resolutions without positional embedding concerns, but scaling might not match that of transformers.
+
+For attention mechanisms, they might just brute force. Listening to the Onboard podcast (the guest speaker is the author of VideoPoet) reinforced my belief in full attention over temporal and spatial attention. New lesson: ring attention works wonders. With Google already handling up to 10 million context lengths, Sora's one-minute video is modest in comparison.
+
+Regarding co-training video and images, it might resemble Videopoet, treating images as fixed-duration videos.
+
+As for continuing a video prediction or looping, Multi Diffusion and DiffCollage could be references. OpenAI hasn't detailed their algorithms, but they likely share similarities, although OpenAI might have some unique, more advanced SDE techniques.
+
+# Remaining Questions
+
+How does Sora manage such clean multi-shot videos? Does the video VAE really have such strong expressive capabilities?
+
+- On the other hand, having image models output multiple collages isn't a significant challenge, so perhaps it's not a major issue. Scaling could be the simple solution.
+
+The size of Sora remains a question. It might well be around 70 billion parameters; anything less might undermine the field of computer vision. A size of 175 billion is also plausible (Before GPT3, the biggest language model is 10B.).
+
+PS:
+
+I recently reviewed Professor Mike Shou's tutorial on T2V, and my takeaway was: why not directly convert text-to-video into text-to-image? Just stitch all the images together as a large image.
+
+Acknowledgement: Thanks to the professional, Haochen Wang, for guidance.
+
+## References
+
+- MagVit v1, v2
+- Stable Diffusion
+- MultiDiffusion, DiffCollage
+- Navit
+- Videopoet
+- DIT
+- Onboard podcast, expert analysis, especially on ring attention.
