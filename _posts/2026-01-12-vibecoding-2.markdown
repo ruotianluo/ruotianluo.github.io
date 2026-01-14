@@ -55,6 +55,8 @@ Anyway, I finally understand what people mean when they say Opus 4.5 is good. It
 
 I guess it is like working with a software engineer; other models are very passive and come back to you and I need to provide ten suggestions every time. But for Opus 4.5, it is pretty proactive. Not only is the UI good, but the UX is also good (I explicitly said the word tracing is for my 4-year-old).
 
+The final result is [here](https://ruotianluo.github.io/word_tracing/).
+
 # Conclusion
 
 Claude win win win.
