@@ -15,7 +15,7 @@ I was like, interesting, I don't know that? I bairly see people talk about self 
 
 So I asked, why do you say that it is popular recently, it says:
 
-```
+<blockquote>
 The core concept of SCST (Self-Critical Sequence Training)—"leveraging the model's own inference results as a baseline to reduce variance"—is currently undergoing a massive resurgence and transformation in the Reinforcement Learning (RL) phase of Large Language Models (LLMs), particularly within Reasoning Models.
 
 This shift is most prominently reflected in several cutting-edge research directions, with the recent series of works by DeepSeek being the most notable.
@@ -27,11 +27,11 @@ blahblahblah
 
 Why this is the "Rebirth" of SCST: It is essentially Critic-free RL. By using a group of samples generated from the model's current distribution to serve as mutual baselines, it solves the issues of high variance or "weak baselines" that occurred when traditional SCST relied solely on a single greedy output.
 
-```
+</blockquote>
 
 Then I asked: did anyone mention it on social media or so?
 
-```
+<blockquote>
 Here are several highly technical papers and reports that explicitly establish the link between current Reasoning/Math RL methods and SCST (Self-Critical Sequence Training) or REINFORCE.
 
 Below are the three most direct "evidence" links:
@@ -47,12 +47,12 @@ Why it matters: In section "3.4.2 Policy Gradient Methods," this very recent sur
 
 
 2. RLOO blahblahblah
-```
+</blockquote>
 
 
 Then I asked: Do you know this paper? https://arxiv.org/pdf/2003.09971
 
-```
+<blockquote>
 Yes, I am familiar with this paper.
 
 **Title:** *A Better Variant of Self-Critical Sequence Training*
@@ -78,7 +78,7 @@ This is actually a fascinating find in the context of our previous discussion. *
 2. **DeepSeek's GRPO (2024):** DeepSeek's **Group Relative Policy Optimization** is also a direct descendant of this idea. It uses the group statistics (mean/std of the  samples) as the baseline, rather than an external Critic or a Greedy Search.
 
 In essence, this paper was **ahead of the curve**. It identified that "Self-Critical" baselines constructed from multiple samples (Leave-One-Out) are superior to single-sample (Greedy) baselines, a concept that has now become the state-of-the-art for reasoning models like DeepSeek-R1.
-```
+</blockquote>
 
 I am crying now, thanks gemini's acknowledgement. I was ahead of curve. TTATT
 
@@ -92,7 +92,7 @@ In deepseekmath, they propose GRPO. I think it is related to some early papers b
 (To make sure no search, I used ai studio)
 
 **Thinking**
-```
+<blockquote>
 **Examining GRPO Connections**
 
 I'm currently dissecting the user's request, focusing on DeepSeekMath's GRPO. I've pinpointed its subject and the observation of earlier papers. The goal is to identify how these earlier works are relevant to DeepSeekMath's GRPO algorithm. I'm focusing on finding the related papers for this GRPO method.
@@ -137,11 +137,11 @@ I'm now integrating the connections between GRPO and earlier works. SCST is a ke
 
 I'm now concluding the literature review. I've reconfirmed that GRPO is indeed essentially REINFORCE with a batch-based baseline, and the similarity to Reference-Free methods is also clear. I'm solidifying the VIMCO and SCST connections, and I'll emphasize that the paper should credit VIMCO for its mathematical foundation of its batch gradient estimator, and SCST for its reference-free use case.
 
-```
+</blockquote>
 
 **Output**
 
-```
+<blockquote>
 Based on the mechanics of **Group Relative Policy Optimization (GRPO)** described in the DeepSeekMath (and subsequently DeepSeek-R1) work, the algorithm essentially removes the Critic (Value Network) and uses the statistical properties of a group of sampled outputs to estimate the baseline.
 
 Specifically, for a single prompt, GRPO generates multiple outputs, calculates the rewards for all of them, and then computes the advantage for each output by normalizing its reward against the **mean and standard deviation of that specific group**.
@@ -178,7 +178,7 @@ However, the closest mechanism is **"Best-of-N" (Rejection Sampling)** turning i
 The most significant missing credit is likely **VIMCO (Mnih & Rezende, 2016)**.
 
 DeepSeek's GRPO is effectively **PPO without the Critic, replacing the Value Function with a VIMCO-style multi-sample baseline.** By not citing VIMCO or SCST, they present the idea of "normalizing rewards relative to the group to avoid training a Critic" as more novel than it historically is in the Variational Inference and Policy Gradient literature.
-```
+</blockquote>
 
 I am ASTONISHED. While SCST is cited 3k times (the same volumn as deepseekmath which is only < 2 year old.), VIMCO is only cited 300+ times. RLOO even misses this paper (yeah, RLOO cited SCST, and also some 2019 paper as the group mean source. GRPO cites neither, hmmm, poor scholarship, rich engineering).
 
