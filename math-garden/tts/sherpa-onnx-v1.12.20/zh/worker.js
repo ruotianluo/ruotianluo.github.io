@@ -16,11 +16,12 @@ self.Module = {
   },
   setStatus(status) {
     const match = String(status).match(/Downloading data\.\.\. \((\d+)\/(\d+)\)/);
+    if (!match) return;
     self.postMessage({
       type: "progress",
       status: String(status),
-      loaded: match ? Number(match[1]) : undefined,
-      total: match ? Number(match[2]) : undefined,
+      loaded: Number(match[1]),
+      total: Number(match[2]),
     });
   },
   onRuntimeInitialized() {

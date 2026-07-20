@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
-2:I[49327,["/math-garden/_next/static/chunks/01xlw8hd842-c.js","/math-garden/_next/static/chunks/0d3shmwh5_nmn.js","/math-garden/_next/static/chunks/0ka051yepewro.js","/math-garden/_next/static/chunks/11g_j0wq8pxt7.js"],"default"]
+2:I[49327,["/math-garden/_next/static/chunks/01xlw8hd842-c.js","/math-garden/_next/static/chunks/0d3shmwh5_nmn.js","/math-garden/_next/static/chunks/0ka051yepewro.js","/math-garden/_next/static/chunks/0bao5_d2e0fjv.js"],"default"]
 3:I[97367,["/math-garden/_next/static/chunks/01xlw8hd842-c.js","/math-garden/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
 4:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{}],[["$","script","script-0",{"src":"/math-garden/_next/static/chunks/0ka051yepewro.js","async":true}],["$","script","script-1",{"src":"/math-garden/_next/static/chunks/11g_j0wq8pxt7.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"uASJcoc-J_B1kYBsHi142"}
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{}],[["$","script","script-0",{"src":"/math-garden/_next/static/chunks/0ka051yepewro.js","async":true}],["$","script","script-1",{"src":"/math-garden/_next/static/chunks/0bao5_d2e0fjv.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"yP6Urh1k_Hz3doybF1wWa"}
 5:null
