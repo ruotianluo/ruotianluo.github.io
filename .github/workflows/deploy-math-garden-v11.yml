@@ -1,0 +1,58 @@
+name: Deploy Math Garden v11
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - ".github/workflows/deploy-math-garden-v11.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-math-garden-v11
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reassemble and verify release artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          artifact_dir="$(mktemp -d)"
+          gh release download math-garden-pages-v11 --pattern 'math-garden-v11-1m-*' --dir "$artifact_dir"
+          part_count="$(find "$artifact_dir" -maxdepth 1 -type f -name 'math-garden-v11-1m-*' | wc -l | tr -d ' ')"
+          test "$part_count" = "33"
+          cat "$artifact_dir"/math-garden-v11-1m-* > "$artifact_dir/math-garden-pages-v11.tar.gz"
+          printf '%s  %s\n' '6f624b1a68fdd69be52af18dd96288063e8572140fdabd3e4911b83a08bca5d8' "$artifact_dir/math-garden-pages-v11.tar.gz" | sha256sum --check -
+          git rm -r --ignore-unmatch math-garden
+          mkdir -p math-garden
+          tar -xzf "$artifact_dir/math-garden-pages-v11.tar.gz" -C math-garden
+          touch math-garden/.nojekyll
+          test -f math-garden/index.html
+          test -f math-garden/privacy/index.html
+          cd math-garden
+          printf '%s\n' \
+            '0a5bf6725492cfc2427df374ed7164e64a7655bcf2362470c79460b288cde4fc  tts/sherpa-onnx-v1.12.20/runtime/sherpa-onnx-wasm-main-tts.wasm' \
+            'ecd1c1568ead0fab382cfa3e89851378d973d84596e1b7a20deb08b94d5a14af  tts/sherpa-onnx-v1.12.20/zh/sherpa-onnx-wasm-main-tts.data' \
+            '7831ca89a70d1055b514c4cb5338f00823ea781ab5f41be2ce0fdb4c158775ba  tts/sherpa-onnx-v1.12.20/en/sherpa-onnx-wasm-main-tts.data' \
+            | sha256sum --check -
+      - name: Commit Pages deployment
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A math-garden
+          if git diff --cached --quiet; then
+            echo "No deployment changes."
+            exit 0
+          fi
+          git commit -m "Deploy Math Garden Sherpa narration"
+          git push
