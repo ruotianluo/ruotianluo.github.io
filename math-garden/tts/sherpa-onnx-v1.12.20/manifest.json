@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "runtime": {
+    "name": "sherpa-onnx",
+    "version": "1.12.20",
+    "source": "https://github.com/k2-fsa/sherpa-onnx/releases/tag/v1.12.20",
+    "build": "official single-thread WebAssembly SIMD TTS runtime"
+  },
+  "voices": {
+    "zh": {
+      "name": "Piper Chaowen medium int8",
+      "source": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-zh_CN-chaowen-medium-int8.tar.bz2",
+      "sampleRate": 22050
+    },
+    "en": {
+      "name": "Piper Lessac medium int8",
+      "source": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-lessac-medium-int8.tar.bz2",
+      "sampleRate": 22050
+    }
+  },
+  "files": {
+    "runtime/sherpa-onnx-wasm-main-tts.wasm": {
+      "bytes": 11779250,
+      "sha256": "0a5bf6725492cfc2427df374ed7164e64a7655bcf2362470c79460b288cde4fc"
+    },
+    "runtime/sherpa-onnx-tts.js": {
+      "bytes": 18893,
+      "sha256": "2b67dccc9c07a083470dc6bf227c718b0bddf988148a31bcfec44fb500c34049"
+    },
+    "zh/sherpa-onnx-wasm-main-tts.data": {
+      "bytes": 20930052,
+      "sha256": "ecd1c1568ead0fab382cfa3e89851378d973d84596e1b7a20deb08b94d5a14af"
+    },
+    "zh/sherpa-onnx-wasm-main-tts.js": {
+      "bytes": 93287,
+      "sha256": "d7f2d04e76c741d97eada55ad789ec84a7a0bcf80ad52391f76f8a27b7e6025c"
+    },
+    "zh/worker.js": {
+      "bytes": 2361,
+      "sha256": "a0262894d8d917db2b51b569acb308724f958c64f01b2f8c5dd80b86410f6433"
+    },
+    "en/sherpa-onnx-wasm-main-tts.data": {
+      "bytes": 19417130,
+      "sha256": "7831ca89a70d1055b514c4cb5338f00823ea781ab5f41be2ce0fdb4c158775ba"
+    },
+    "en/sherpa-onnx-wasm-main-tts.js": {
+      "bytes": 93649,
+      "sha256": "3c5cad4e12d8ea79b69914f1b3c98936cc8c78bbbcb27cd6a7d57b203accac67"
+    },
+    "en/worker.js": {
+      "bytes": 2329,
+      "sha256": "9e6ee67b612b6857c3ab43311b2925ec716d1dbc5366d223da7a851c29f805f2"
+    }
+  }
+}
